@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UI/UX Portfolio — Cosmin Designer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="row">
+          <nav class="primary" aria-label="Primary">
+            <a href="#featured">Portfolio</a>
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <button aria-label="Menu" class="menu-button">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Featured Project / Hero -->
+      <section id="featured" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="title">Featured Project</div>
+            <button class="pill">View All Work</button>
+          </div>
+          <div class="carousel-container hero-carousel">
+            <div
+              id="hero"
+              class="card hero bg-red"
+              role="region"
+              aria-label="Featured projects carousel"
+            >
+              <div class="pad">
+                <div class="title" id="hero-title">
+                  <span>E-Commerce</span><br /><span>Mobile App</span
+                  ><br /><span>Redesign</span><br /><span>2024</span>
+                </div>
+              </div>
+              <div class="caption">
+                <a href="#" id="hero-caption">Project: ShopFlow Mobile</a>
+              </div>
+            </div>
+            <div class="dots" id="hero-dots" aria-label="Slide controls"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Work grid -->
+      <section id="work" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="title">Recent Work</div>
+            <button class="pill">All Projects</button>
+          </div>
+          <div class="grid two">
+            <div class="carousel-container">
+              <div
+                id="retail-carousel"
+                class="card bg-blue aspect-16x10"
+                role="region"
+                aria-label="Recent work carousel"
+              >
+                <div class="pad">
+                  <div class="title" id="retail-carousel-title">
+                    Dashboard<br />Analytics
+                  </div>
+                </div>
+                <div class="caption">
+                  <a href="#" id="retail-carousel-caption">FinTech Platform</a>
+                </div>
+              </div>
+              <div
+                class="dots"
+                id="retail-carousel-dots"
+                aria-label="Slide controls"
+              ></div>
+            </div>
+            <a
+              href="https://google.com?q=FoodieApp"
+              class="card bg-emerald aspect-16x10"
+            >
+              <div class="pad">
+                <div class="title">Restaurant<br />Ordering<br />System.</div>
+              </div>
+              <div class="caption">FoodieApp UX</div>
+            </a>
+            <a
+              href="https://google.com?q=MedConnect"
+              class="card bg-stone aspect-16x10"
+            >
+              <div class="pad">
+                <div class="title">
+                  Healthcare<br />Patient Portal<br />Interface
+                </div>
+              </div>
+              <div class="caption">MedConnect</div>
+            </a>
+            <a
+              href="https://google.com?q=WanderWise"
+              class="card bg-yellow aspect-16x10"
+            >
+              <div class="pad">
+                <div class="title">
+                  Travel Booking<br />Web App<br />Experience
+                </div>
+              </div>
+              <div class="caption">WanderWise</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services grid -->
+      <section id="services" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="title">Services</div>
+            <button class="pill">Get In Touch</button>
+          </div>
+          <div class="grid two">
+            <a
+              href="https://google.com?q=UX+Research"
+              class="card bg-deep aspect-16x9"
+            >
+              <div class="pad">
+                <div class="title">UX Research<br />& Strategy</div>
+              </div>
+              <div class="caption">
+                User Research • Information Architecture
+              </div>
+            </a>
+            <a
+              href="https://google.com?q=UI+Design"
+              class="card bg-black aspect-16x9 bg-image-card"
+            >
+              <div class="pad overlay-dark">
+                <div class="title">UI Design<br />& Prototyping</div>
+              </div>
+              <div class="caption">Visual Design • Interactive Prototypes</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About / Experience grid -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="title">About</div>
+            <button class="pill">Download Resume</button>
+          </div>
+          <div class="grid asymmetric">
+            <a
+              href="https://google.com?q=About+Cosmin"
+              class="card bg-stone aspect-large"
+            >
+              <div class="pad">
+                <div class="title">5+ Years Creating Digital Experiences</div>
+              </div>
+              <div class="caption">Senior UI/UX Designer • Design Systems</div>
+            </a>
+            <a
+              href="https://google.com?q=Contact+Cosmin"
+              class="card bg-red aspect-small"
+            >
+              <div class="pad">
+                <div class="title">Let's<br />Collaborate</div>
+              </div>
+              <div class="caption">Available for Projects</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div class="container footer-container">
+        <div class="brand">Cosmin<sup class="brand-super">®</sup></div>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li>UX Research</li>
+              <li>User Interface Design</li>
+              <li>Prototyping</li>
+              <li>Design Systems</li>
+              <li>Usability Testing</li>
+              <li>Information Architecture</li>
+              <li>Interaction Design</li>
+              <li>Mobile App Design</li>
+              <li>Web App Design</li>
+              <li>Dashboard Design</li>
+              <li>E-commerce UX</li>
+              <li>Accessibility Design</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Industries</h4>
+            <ul>
+              <li>FinTech</li>
+              <li>Healthcare</li>
+              <li>E-commerce</li>
+              <li>SaaS Platforms</li>
+              <li>Travel & Hospitality</li>
+              <li>Food & Beverage</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Tools</h4>
+            <ul>
+              <li>Figma</li>
+              <li>Sketch</li>
+              <li>Adobe XD</li>
+              <li>Principle</li>
+              <li>Framer</li>
+              <li>InVision</li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col-span-2">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="#" class="social-link">LinkedIn</a>
+              <a href="#" class="social-link">Dribbble</a>
+              <a href="#" class="social-link">Behance</a>
+              <a href="#" class="social-link">Medium</a>
+            </div>
+            <div class="copyright-text">
+              © 2025–<span id="copyright-year"></span> Cosmin UI/UX Designer.
+              All rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

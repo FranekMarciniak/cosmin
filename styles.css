@@ -1,0 +1,420 @@
+/* --- Reset / Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #000;
+  background: #fff;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Layout helpers --- */
+.container {
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.section {
+  width: 100%;
+}
+.section + .section {
+  margin-top: 40px;
+}
+
+/* --- Header --- */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.site-header .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+}
+nav.primary {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* --- Section header --- */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.section-header .title {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.pill:hover {
+  background: #333;
+  border-color: #333;
+}
+
+/* --- Cards (square corners) --- */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+}
+.card .pad {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+}
+.card .title {
+  margin: auto 0;
+  white-space: pre-wrap;
+  font-family: ui-serif, Georgia, serif;
+  line-height: 0.9;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.caption {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.caption a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+.caption a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- Hero (first tile) --- */
+.hero {
+  height: 90vh;
+  width: 100%;
+}
+.hero .title {
+  font-size: clamp(40px, 7vw, 96px);
+}
+
+/* --- Carousel Container --- */
+.carousel-container {
+  width: 100%;
+}
+
+/* Hero carousel container should match hero card width */
+.carousel-container.hero-carousel {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .carousel-container.hero-carousel {
+    width: 80%;
+  }
+}
+
+/* --- Dots --- */
+.dots {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  padding-right: 0;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+  opacity: 0.4;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dot:hover {
+  opacity: 0.7;
+  background: #333;
+  transform: scale(1.2);
+}
+.dot[aria-current="true"] {
+  opacity: 1;
+  background: #000;
+}
+.dot[aria-current="true"]:hover {
+  background: #222;
+}
+
+/* --- Grids --- */
+.grid {
+  display: grid;
+  gap: 12px;
+}
+.grid.two {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .grid.two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.grid.asymmetric {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+@media (min-width: 768px) {
+  .grid.asymmetric {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+/* Card aspect helpers */
+.aspect-16x10 {
+  aspect-ratio: 16 / 10;
+}
+.aspect-16x9 {
+  aspect-ratio: 16 / 9;
+}
+.aspect-16x8 {
+  aspect-ratio: 16 / 8;
+}
+.aspect-large {
+  aspect-ratio: 16 / 12;
+}
+.aspect-small {
+  aspect-ratio: 16 / 12;
+}
+
+/* --- Colors --- */
+.bg-red {
+  background: #dc2626;
+  color: #fff;
+}
+.bg-blue {
+  background: #2563eb;
+  color: #fff;
+}
+.bg-emerald {
+  background: #a7f3d0;
+  color: #000;
+}
+.bg-yellow {
+  background: #fde68a;
+  color: #000;
+}
+.bg-stone {
+  background: #d6d3d1;
+  color: #000;
+}
+.bg-deep {
+  background: #0f3a38;
+  color: #fff;
+}
+.bg-black {
+  background: #000;
+  color: #fff;
+}
+
+/* --- Footer --- */
+footer.site-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 56px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  font-size: 14px;
+}
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+.footer-col h4 {
+  margin: 0 0 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.6);
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col li {
+  margin: 6px 0;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.footer-col li:hover {
+  color: rgba(0, 0, 0, 1);
+}
+.brand {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* --- New utility classes for inline styles --- */
+
+/* Menu button styles */
+.menu-button {
+  background: none;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.menu-button:hover {
+  opacity: 0.7;
+}
+
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #000;
+  margin: 3px 0;
+  transition: all 0.2s ease;
+}
+
+/* Background image card - Updated for UI/UX portfolio */
+.bg-image-card {
+  background-image: url('https://images.unsplash.com/photo-1586717799252-bd134ad00e26?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay for background image */
+.overlay-dark {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Footer container padding */
+.footer-container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* Brand superscript */
+.brand-super {
+  font-size: 10px;
+  vertical-align: super;
+}
+
+/* Footer column span */
+.footer-col-span-2 {
+  grid-column: span 2;
+}
+
+/* Social links container */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Social link styling */
+.social-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+.social-link:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Copyright text */
+.copyright-text {
+  margin-top: 16px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* --- Carousel Sliding --- */
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* Hero carousel slides should inherit hero height */
+.hero-carousel .carousel-slide {
+  height: 90vh;
+}
+
+/* Regular carousel slides should inherit aspect ratio */
+.carousel-container:not(.hero-carousel) .carousel-slide {
+  height: 100%;
+}
+
+.carousel-container .card {
+  overflow: hidden;
+}
