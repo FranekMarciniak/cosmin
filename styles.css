@@ -383,12 +383,12 @@ a {
 /* Fix dots on mobile to prevent squishing */
 @media (max-width: 768px) {
   .dot {
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
     border-width: 2px;
     flex-shrink: 0;
-    min-width: 14px;
-    min-height: 14px;
+    min-width: 10px;
+    min-height: 10px;
   }
   
   .dot:hover::before {
@@ -406,11 +406,11 @@ a {
   }
   
   .dot {
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     border-width: 3px;
-    min-width: 16px;
-    min-height: 16px;
+    min-width: 10px;
+    min-height: 10px;
     box-sizing: border-box;
     -webkit-appearance: none;
     appearance: none;
