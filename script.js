@@ -134,12 +134,15 @@ class Carousel {
     // Touch/swipe properties
     this.isDragging = false;
     this.startPos = 0;
+    this.startPosY = 0;
     this.currentTranslate = 0;
     this.prevTranslate = 0;
     this.animationID = 0;
     this.currentIndex = 0;
     this.totalMovement = 0;
+    this.totalMovementY = 0;
     this.dragStartTime = 0;
+    this.isHorizontalSwipe = false;
 
     this.init();
   }
@@ -264,11 +267,17 @@ class Carousel {
     return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
   }
 
+  getPositionY(event) {
+    return event.type.includes('mouse') ? event.pageY : event.touches[0].clientY;
+  }
+
   touchStart(event) {
-    event.preventDefault();
     this.startPos = this.getPositionX(event);
+    this.startPosY = this.getPositionY(event);
     this.isDragging = true;
     this.totalMovement = 0;
+    this.totalMovementY = 0;
+    this.isHorizontalSwipe = false;
     this.dragStartTime = Date.now();
     this.animationID = requestAnimationFrame(this.animation.bind(this));
     this.container.style.cursor = 'grabbing';
@@ -291,21 +300,40 @@ class Carousel {
 
   touchMove(event) {
     if (!this.isDragging) return;
+    
     const currentPosition = this.getPositionX(event);
-    const diff = currentPosition - this.startPos;
+    const currentPositionY = this.getPositionY(event);
+    const diffX = currentPosition - this.startPos;
+    const diffY = currentPositionY - this.startPosY;
     const containerWidth = this.container.offsetWidth;
     
     // Track total movement for click prevention
-    this.totalMovement = Math.abs(diff);
+    this.totalMovement = Math.abs(diffX);
+    this.totalMovementY = Math.abs(diffY);
     
-    this.currentTranslate = this.prevTranslate + diff;
+    // Determine if this is a horizontal swipe
+    if (!this.isHorizontalSwipe && (this.totalMovement > 10 || this.totalMovementY > 10)) {
+      this.isHorizontalSwipe = this.totalMovement > this.totalMovementY;
+    }
     
-    // Limit the drag range
-    const maxTranslate = 0;
-    const minTranslate = -(this.slides.length - 1) * containerWidth;
-    this.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, this.currentTranslate));
-    
-    this.setSliderPosition(this.currentTranslate);
+    // Only handle horizontal swipes and prevent default for those
+    if (this.isHorizontalSwipe) {
+      event.preventDefault();
+      
+      this.currentTranslate = this.prevTranslate + diffX;
+      
+      // Limit the drag range
+      const maxTranslate = 0;
+      const minTranslate = -(this.slides.length - 1) * containerWidth;
+      this.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, this.currentTranslate));
+      
+      this.setSliderPosition(this.currentTranslate);
+    } else if (this.totalMovementY > 10) {
+      // This is a vertical swipe, stop carousel interaction
+      this.isDragging = false;
+      cancelAnimationFrame(this.animationID);
+      this.container.style.cursor = 'grab';
+    }
   }
 
   mouseMove(event) {
@@ -332,25 +360,31 @@ class Carousel {
     cancelAnimationFrame(this.animationID);
     this.container.style.cursor = 'grab';
     
-    const movedBy = this.currentTranslate - this.prevTranslate;
-    const containerWidth = this.container.offsetWidth;
-    const threshold = containerWidth * 0.15; // 15% threshold for slide change (more sensitive)
-    
-    if (Math.abs(movedBy) > threshold) {
-      if (movedBy > 0 && this.slideIndex > 0) {
-        // Swipe right - go to previous slide
-        this.setSlide(this.slideIndex - 1);
-      } else if (movedBy < 0 && this.slideIndex < this.slides.length - 1) {
-        // Swipe left - go to next slide
-        this.setSlide(this.slideIndex + 1);
+    // Only process slide changes for horizontal swipes
+    if (this.isHorizontalSwipe) {
+      const movedBy = this.currentTranslate - this.prevTranslate;
+      const containerWidth = this.container.offsetWidth;
+      const threshold = containerWidth * 0.15; // 15% threshold for slide change (more sensitive)
+      
+      if (Math.abs(movedBy) > threshold) {
+        if (movedBy > 0 && this.slideIndex > 0) {
+          // Swipe right - go to previous slide
+          this.setSlide(this.slideIndex - 1);
+        } else if (movedBy < 0 && this.slideIndex < this.slides.length - 1) {
+          // Swipe left - go to next slide
+          this.setSlide(this.slideIndex + 1);
+        } else {
+          // At boundary, snap back
+          this.setSlide(this.slideIndex);
+        }
       } else {
-        // At boundary, snap back
+        // Not enough movement, snap back to current slide
         this.setSlide(this.slideIndex);
       }
-    } else {
-      // Not enough movement, snap back to current slide
-      this.setSlide(this.slideIndex);
     }
+    
+    // Reset horizontal swipe flag
+    this.isHorizontalSwipe = false;
   }
 
   mouseUp(event) {

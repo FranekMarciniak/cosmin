@@ -556,6 +556,10 @@ footer.site-footer {
   touch-action: pan-y pinch-zoom;
 }
 
+.carousel-container {
+  touch-action: pan-y pinch-zoom;
+}
+
 /* Smooth transitions for touch/swipe */
 .carousel-slides.swiping {
   transition: none;
