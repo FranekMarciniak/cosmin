@@ -276,6 +276,25 @@ a {
   height: 80vh;
   width: 100%;
 }
+
+/* Fix hero viewport height on mobile */
+@media (max-width: 768px) {
+  .hero {
+    height: 500px; /* Fixed height on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 400px; /* Smaller fixed height on small mobile */
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    height: 350px; /* Even smaller for very small screens */
+  }
+}
 .hero .title {
   font-size: clamp(40px, 7vw, 96px);
 }
@@ -528,6 +547,25 @@ footer.site-footer {
 /* Hero carousel slides should inherit hero height */
 .hero-carousel .carousel-slide {
   height: 90vh;
+}
+
+/* Fix mobile viewport height issues */
+@media (max-width: 768px) {
+  .hero-carousel .carousel-slide {
+    height: 500px; /* Fixed height on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-carousel .carousel-slide {
+    height: 400px; /* Smaller fixed height on small mobile */
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-carousel .carousel-slide {
+    height: 350px; /* Even smaller for very small screens */
+  }
 }
 
 /* Regular carousel slides should inherit aspect ratio */
