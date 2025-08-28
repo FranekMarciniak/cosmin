@@ -396,6 +396,14 @@ a {
     border-width: 3px;
     min-width: 16px;
     min-height: 16px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   
   .dot:hover::before {
@@ -403,6 +411,32 @@ a {
     left: 3px;
     right: 3px;
     bottom: 3px;
+  }
+}
+
+/* iPhone specific fixes */
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .dot {
+    width: 18px !important;
+    height: 18px !important;
+    border-width: 3px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border-style: solid !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 50% !important;
+    -webkit-transform: translate3d(0,0,0) !important;
+    transform: translate3d(0,0,0) !important;
+  }
+  
+  .dot::before {
+    box-sizing: border-box !important;
+    -webkit-border-radius: 50% !important;
+    border-radius: 50% !important;
   }
 }
 
