@@ -432,13 +432,13 @@ a {
 /* iOS Safari specific fixes - comprehensive targeting */
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .dot {
-    width: 18px !important;
-    height: 18px !important;
-    border-width: 3px !important;
-    min-width: 18px !important;
-    min-height: 18px !important;
-    max-width: 18px !important;
-    max-height: 18px !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-width: 2px !important;
+    min-width: 10px !important;
+    min-height: 10px !important;
+    max-width: 10px !important;
+    max-height: 10px !important;
     border-style: solid !important;
     border-radius: 50% !important;
     box-sizing: border-box !important;
