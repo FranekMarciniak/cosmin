@@ -365,6 +365,47 @@ a {
   display: none;
 }
 
+/* Fix dots on mobile to prevent squishing */
+@media (max-width: 768px) {
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+    flex-shrink: 0;
+    min-width: 14px;
+    min-height: 14px;
+  }
+  
+  .dot:hover::before {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dots {
+    gap: 10px;
+    margin-top: 16px;
+  }
+  
+  .dot {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+    min-width: 16px;
+    min-height: 16px;
+  }
+  
+  .dot:hover::before {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+  }
+}
+
 /* --- Grids --- */
 .grid {
   display: grid;
