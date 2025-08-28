@@ -321,10 +321,18 @@ a {
   gap: 8px;
   margin-top: 12px;
   padding-right: 0;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: visible;
+  min-height: 20px;
 }
 .dot {
   width: 12px;
   height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  max-width: 12px;
+  max-height: 12px;
   border-radius: 50%;
   background: transparent;
   border: 2px solid #000;
@@ -332,6 +340,13 @@ a {
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .dot:hover {
@@ -414,29 +429,66 @@ a {
   }
 }
 
-/* iPhone specific fixes */
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+/* iOS Safari specific fixes - comprehensive targeting */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .dot {
     width: 18px !important;
     height: 18px !important;
     border-width: 3px !important;
     min-width: 18px !important;
     min-height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
     border-style: solid !important;
     border-radius: 50% !important;
     box-sizing: border-box !important;
     display: inline-block !important;
     vertical-align: middle !important;
     -webkit-appearance: none !important;
+    appearance: none !important;
     -webkit-border-radius: 50% !important;
     -webkit-transform: translate3d(0,0,0) !important;
     transform: translate3d(0,0,0) !important;
+    background-clip: padding-box !important;
+    -webkit-background-clip: padding-box !important;
+    overflow: hidden !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
   }
   
   .dot::before {
     box-sizing: border-box !important;
     -webkit-border-radius: 50% !important;
     border-radius: 50% !important;
+  }
+  
+  .dots {
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+  }
+}
+
+/* Additional iOS Safari fixes for all iOS devices */
+@supports (-webkit-touch-callout: none) {
+  .dot {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    touch-action: manipulation !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+  
+  .dots {
+    -webkit-overflow-scrolling: touch !important;
+    contain: layout style !important;
   }
 }
 
