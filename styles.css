@@ -38,26 +38,165 @@ a {
 }
 
 /* --- Header --- */
-header.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.7);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+#header {
+  padding: 15px;
+  position: relative;
 }
-.site-header .row {
+
+.header-top {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 44px;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
-nav.primary {
+
+#header h1 {
+  font-size: 2.75rem;
+  font-weight: 400;
+  line-height: 2.75rem;
+  margin: 0;
+}
+
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: #000;
+  transition: all 0.3s ease;
+}
+
+.nav {
+  transition: all 0.3s ease;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  gap: 16px;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-list li a {
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+  line-height: 2.75rem;
+}
+
+.nav-list li a span:first-child:hover {
+  color: #8a8a8a;
+}
+
+/* --- Responsive Navbar with Hamburger --- */
+@media (max-width: 768px) {
+  #header {
+    padding: 15px;
+  }
+  
+  .header-top {
+    margin-bottom: 0;
+  }
+  
+  #header h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  
+  .hamburger-menu {
+    display: flex;
+  }
+  
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 20px 15px;
+  }
+  
+  .nav.active {
+    display: block;
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .nav-list li a {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+  
+  /* Hamburger Animation */
+  .hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+@media (max-width: 480px) {
+  #header {
+    padding: 10px;
+  }
+  
+  #header h1 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  
+  .nav {
+    padding: 15px 10px;
+  }
+  
+  .nav-list li a {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  #header {
+    padding: 8px;
+  }
+  
+  #header h1 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+  
+  .nav {
+    padding: 12px 8px;
+  }
+  
+  .nav-list li a {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
 }
 
 /* --- Section header --- */
@@ -134,7 +273,7 @@ nav.primary {
 
 /* --- Hero (first tile) --- */
 .hero {
-  height: 90vh;
+  height: 80vh;
   width: 100%;
 }
 .hero .title {
@@ -313,26 +452,7 @@ footer.site-footer {
 
 /* --- New utility classes for inline styles --- */
 
-/* Menu button styles */
-.menu-button {
-  background: none;
-  border: 0;
-  padding: 8px;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-.menu-button:hover {
-  opacity: 0.7;
-}
 
-.hamburger-line {
-  display: block;
-  width: 20px;
-  height: 1px;
-  background: #000;
-  margin: 3px 0;
-  transition: all 0.2s ease;
-}
 
 /* Background image card - Updated for UI/UX portfolio */
 .bg-image-card {
@@ -417,4 +537,36 @@ footer.site-footer {
 
 .carousel-container .card {
   overflow: hidden;
+}
+
+/* --- Touch/Swipe Carousel Styles --- */
+.carousel-container {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+.carousel-slides {
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Smooth transitions for touch/swipe */
+.carousel-slides.swiping {
+  transition: none;
+}
+
+/* Prevent text selection during swipe */
+.carousel-container * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

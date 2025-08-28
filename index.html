@@ -7,23 +7,34 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container">
-        <div class="row">
-          <nav class="primary" aria-label="Primary">
-            <a href="#featured">Portfolio</a>
-            <a href="#work">Work</a>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <button aria-label="Menu" class="menu-button">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
+    <header id="header">
+      <div class="header-top">
+        <h1 class="scramble-on-page-load">Cosmin Ursea</h1>
+        <button class="hamburger-menu" aria-label="Toggle navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li>
+            <a href="/" aria-label="Home"
+              ><span class="scramble-on-page-load">Home</span><span>,</span></a
+            >
+          </li>
+          <li>
+            <a href="/about" aria-label="About"
+              ><span class="scramble-on-page-load">About</span><span>,</span></a
+            >
+          </li>
+          <li>
+            <a href="/contact" aria-label="Contact"
+              ><span class="scramble-on-page-load">Contact</span></a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
