@@ -477,6 +477,10 @@ a {
 .carousel-container {
   width: 100%;
 }
+.carousel-container .card {
+  height: 100%;
+  max-width: 100%;
+}
 
 /* Hero carousel container should match hero card width */
 .carousel-container.hero-carousel {
@@ -606,6 +610,38 @@ a {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
   }
+}
+
+/* Cards grid - 2 columns with card wrappers */
+.cards-grid {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3xl);
+}
+@media (min-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card wrapper - contains card and its description */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Ensure all cards in the same row have equal height */
+.card-wrapper .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-wrapper .card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex: 1;
 }
 
 /* Card aspect helpers */

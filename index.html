@@ -9,8 +9,10 @@
   <body>
     <header id="header">
       <div class="header-content">
-        <h1 class="scramble-on-page-load">Cosmin</h1>
         <nav class="nav">
+          <a href="/" class="nav-link"
+            ><span class="scramble-on-page-load">Cosmin</span><span>,</span></a
+          >
           <a href="/" class="nav-link"
             ><span class="scramble-on-page-load">Work</span><span>,</span></a
           >
@@ -65,14 +67,17 @@
           </div>
         </div>
         <div class="container">
-          <div class="grid two">
-            <div class="carousel-container">
-              <div
-                id="retail-carousel"
-                class="card aspect-16x10"
-                role="region"
-                aria-label="Recent work carousel"
-              ></div>
+          <div class="grid cards-grid">
+            <!-- Card Wrapper 1 -->
+            <div class="card-wrapper">
+              <div class="carousel-container">
+                <div
+                  id="retail-carousel"
+                  class="card aspect-16x10"
+                  role="region"
+                  aria-label="Recent work carousel"
+                ></div>
+              </div>
               <div class="card-description-container">
                 <div class="card-description">
                   <span class="card-description-title">Retail</span>
@@ -85,14 +90,25 @@
                 ></div>
               </div>
             </div>
-            <div>
+
+            <!-- Card Wrapper 2 -->
+            <div class="card-wrapper">
               <a
                 href="https://google.com?q=FoodieApp"
                 class="card aspect-16x10"
               >
                 <img
                   class="card-img"
-                  src="/public/img/other/stock-pic.png"
+                  src="/public/img/stock/stock-pic-1000w.webp"
+                  srcset="
+                    /public/img/stock/stock-pic-400w.webp   400w,
+                    /public/img/stock/stock-pic-600w.webp   600w,
+                    /public/img/stock/stock-pic-800w.webp   800w,
+                    /public/img/stock/stock-pic-1000w.webp 1000w,
+                    /public/img/stock/stock-pic-1200w.webp 1200w,
+                    /public/img/stock/stock-pic-1600w.webp 1600w
+                  "
+                  sizes="(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (max-width: 1000px) 1000px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (min-width: 1601px) 2000px"
                   alt=""
                 />
               </a>
@@ -104,14 +120,25 @@
                 <div class="dots" aria-label="Slide controls"></div>
               </div>
             </div>
-            <div>
+
+            <!-- Card Wrapper 3 -->
+            <div class="card-wrapper">
               <a
                 href="https://google.com?q=MedConnect"
                 class="card aspect-16x10"
               >
                 <img
                   class="card-img"
-                  src="/public/img/machina/machina-events-pic.png"
+                  src="/public/img/machina/machina-events-pic-1000w.webp"
+                  srcset="
+                    /public/img/machina/machina-events-pic-400w.webp   400w,
+                    /public/img/machina/machina-events-pic-600w.webp   600w,
+                    /public/img/machina/machina-events-pic-800w.webp   800w,
+                    /public/img/machina/machina-events-pic-1000w.webp 1000w,
+                    /public/img/machina/machina-events-pic-1200w.webp 1200w,
+                    /public/img/machina/machina-events-pic-1600w.webp 1600w
+                  "
+                  sizes="(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (max-width: 1000px) 1000px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (min-width: 1601px) 2000px"
                   alt=""
                 />
               </a>
@@ -123,14 +150,25 @@
                 <div class="dots" aria-label="Slide controls"></div>
               </div>
             </div>
-            <div>
+
+            <!-- Card Wrapper 4 -->
+            <div class="card-wrapper">
               <a
                 href="https://google.com?q=WanderWise"
                 class="card aspect-16x10"
               >
                 <img
                   class="card-img"
-                  src="/public/img/logos/logos_pic.png"
+                  src="/public/img/logos-pic/logos_pic-1000w.webp"
+                  srcset="
+                    /public/img/logos-pic/logos_pic-400w.webp   400w,
+                    /public/img/logos-pic/logos_pic-600w.webp   600w,
+                    /public/img/logos-pic/logos_pic-800w.webp   800w,
+                    /public/img/logos-pic/logos_pic-1000w.webp 1000w,
+                    /public/img/logos-pic/logos_pic-1200w.webp 1200w,
+                    /public/img/logos-pic/logos_pic-1600w.webp 1600w
+                  "
+                  sizes="(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (max-width: 1000px) 1000px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (min-width: 1601px) 2000px"
                   alt=""
                 />
               </a>

@@ -54,27 +54,34 @@ window.CAROUSEL_CONFIG = {
       link: "https://google.com?q=FinTech+Platform",
       alt: "",
       image: {
-        card: "factofly",
-        name: "factofly-1",
+        card: "machina",
+        name: "machina-events-pic",
         widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
         fallbackWidth: 1000
       }
     },
     {
-      link: "https://google.com?q=Fitness+Tracker",
+      link: "https://google.com?q=FinTech+Platform",
       alt: "",
-      image: { path: "/img/havana/havana-club-pic.png" }
+      image: {
+        card: "stock",
+        name: "stock-pic",
+        widths: [400, 600, 800, 1000, 1200, 1600],
+        ext: "webp",
+        fallbackWidth: 1000
+      }
     },
     {
-      link: "https://google.com?q=RetailMax",
+      link: "https://google.com?q=FinTech+Platform",
       alt: "",
-      image: { path: "/img/machina/machina-events-pic.png" }
-    },
-    {
-      link: "https://google.com?q=ProductivityHub",
-      alt: "",
-      image: { path: "/img/logos/logos_pic.png" }
+      image: {
+        card: "havana",
+        name: "havana-club-pic",
+        widths: [400, 600, 800, 1000, 1200, 1600],
+        ext: "webp",
+        fallbackWidth: 1000
+      }
     }
   ]
 };
