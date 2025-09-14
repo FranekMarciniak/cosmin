@@ -1,0 +1,111 @@
+/* ===== ABOUT PAGE STYLES ===== */
+
+/* --- About Page Layout --- */
+.about-container {
+  display: grid;
+  gap: var(--space-3xl);
+  grid-template-columns: 1fr;
+}
+
+.about-portrait {
+  max-width: 800px;
+  margin: 0 ;
+  position: relative;
+}
+
+.about-portrait img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.about-copy {
+  max-width: 680px;
+}
+
+.about-copy p {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-normal);
+  margin: 0 0 var(--space-lg) 0;
+}
+
+/* --- Eyebrow Headers --- */
+.eyebrow {
+  display: block;
+  padding: var(--space-md) 0;
+  margin-bottom: var(--space-lg);
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+  display: grid;
+  gap: var(--space-3xl);
+  grid-template-columns: 1fr;
+}
+
+.skills-col h4 {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: var(--text-base);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.skills-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: disc;
+  padding-left: var(--space-2xl);
+}
+
+.skills-col li {
+  margin: var(--space-sm) 0;
+}
+
+/* --- Clients Section --- */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3xl) var(--space-6xl);
+}
+
+.clients-grid ul {
+  margin: 0;
+  padding: 0;
+  list-style: disc;
+  padding-left: var(--space-2xl);
+}
+
+.clients-grid li {
+  margin: var(--space-sm) 0;
+}
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 700px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
