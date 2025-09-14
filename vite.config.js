@@ -5,7 +5,8 @@ module.exports = defineConfig({
     rollupOptions: {
       input: {
         main: './index.html',
-        about: './about.html'
+        about: './about.html',
+        work: './work.html'
       }
     }
   }
