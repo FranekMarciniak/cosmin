@@ -4,7 +4,7 @@
 window.CAROUSEL_CONFIG = {
   heroSlides: [
     {
-      link: "https://google.com?q=ShopFlow+Mobile",
+      link: "/work/factofly",
       alt: "",
       image: {
         card: "factofly",
@@ -15,7 +15,7 @@ window.CAROUSEL_CONFIG = {
       }
     },
     {
-      link: "https://google.com?q=ShopFlow+Mobile",
+      link: "/work/factofly",
       alt: "",
       image: {
         card: "factofly",
@@ -26,7 +26,7 @@ window.CAROUSEL_CONFIG = {
       }
     },
     {
-      link: "https://google.com?q=ShopFlow+Mobile",
+      link: "/work/factofly",
       alt: "",
       image: {
         card: "factofly",
@@ -37,7 +37,7 @@ window.CAROUSEL_CONFIG = {
       }
     },
     {
-      link: "https://google.com?q=ShopFlow+Mobile",
+      link: "/work/factofly",
       alt: "",
       image: {
         card: "factofly",

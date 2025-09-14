@@ -6,7 +6,7 @@ module.exports = defineConfig({
       input: {
         main: './index.html',
         about: './about.html',
-        work: './work.html'
+        work: './work/index.html'
       }
     }
   }

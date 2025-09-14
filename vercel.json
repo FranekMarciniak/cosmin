@@ -6,7 +6,7 @@
     },
     {
       "source": "/work",
-      "destination": "/work.html"
+      "destination": "/work/index.html"
     }
   ]
 }
