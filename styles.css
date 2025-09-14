@@ -495,12 +495,12 @@ a {
   min-height: var(--spacing-2xl);
 }
 .dot {
-  width: var(--spacing-lg);
-  height: var(--spacing-lg);
-  min-width: var(--spacing-lg);
-  min-height: var(--spacing-lg);
-  max-width: var(--spacing-lg);
-  max-height: var(--spacing-lg);
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+  min-width: var(--spacing-xl);
+  min-height: var(--spacing-xl);
+  max-width: var(--spacing-xl);
+  max-height: var(--spacing-xl);
   border-radius: var(--radius-full);
   background: transparent;
   border: var(--border-width-medium) solid var(--color-primary);
@@ -511,8 +511,9 @@ a {
   box-sizing: border-box;
   flex-shrink: 0;
   flex-grow: 0;
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
+  padding: 0;
+  line-height: 0;
   -webkit-appearance: none;
   appearance: none;
 }
@@ -523,20 +524,10 @@ a {
   background: var(--color-primary);
 }
 
-.dot:hover::before {
-  content: '';
-  position: absolute;
-  top: var(--border-width-medium);
-  left: var(--border-width-medium);
-  right: var(--border-width-medium);
-  bottom: var(--border-width-medium);
-  background: var(--color-white);
-  border-radius: var(--radius-full);
-}
+.dot:hover::before { display: none; }
 
 .dot[aria-current="true"] {
   opacity: 1;
-  border-color: var(--color-primary);
   background: var(--color-primary);
 }
 
@@ -551,20 +542,15 @@ a {
 /* Fix dots on mobile to prevent squishing */
 @media (max-width: 768px) {
   .dot {
-    width: var(--spacing-sm);
-    height: var(--spacing-sm);
-    border-width: var(--border-width-medium);
+    width: var(--spacing-lg);
+    height: var(--spacing-lg);
     flex-shrink: 0;
-    min-width: var(--spacing-sm);
-    min-height: var(--spacing-sm);
+    min-width: var(--spacing-lg);
+    min-height: var(--spacing-lg);
+    border: var(--border-width-medium) solid var(--color-primary);
   }
   
-  .dot:hover::before {
-    top: var(--border-width-medium);
-    left: var(--border-width-medium);
-    right: var(--border-width-medium);
-    bottom: var(--border-width-medium);
-  }
+  .dot:hover::before { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -574,11 +560,10 @@ a {
   }
   
   .dot {
-    width: var(--spacing-sm);
-    height: var(--spacing-sm);
-    border-width: var(--border-width-thick);
-    min-width: var(--spacing-sm);
-    min-height: var(--spacing-sm);
+    width: var(--spacing-lg);
+    height: var(--spacing-lg);
+    min-width: var(--spacing-lg);
+    min-height: var(--spacing-lg);
     box-sizing: border-box;
     -webkit-appearance: none;
     appearance: none;
@@ -587,78 +572,12 @@ a {
     transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    border: var(--border-width-medium) solid var(--color-primary);
   }
   
-  .dot:hover::before {
-    top: var(--border-width-thick);
-    left: var(--border-width-thick);
-    right: var(--border-width-thick);
-    bottom: var(--border-width-thick);
-  }
+  .dot:hover::before { display: none; }
 }
 
-/* iOS Safari specific fixes - comprehensive targeting */
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  .dot {
-    width: var(--spacing-lg) !important;
-    height: var(--spacing-lg) !important;
-    border-width: var(--border-width-medium) !important;
-    min-width: var(--spacing-lg) !important;
-    min-height: var(--spacing-lg) !important;
-    max-width: var(--spacing-lg) !important;
-    max-height: var(--spacing-lg) !important;
-    border-style: solid !important;
-    border-radius: var(--radius-full) !important;
-    box-sizing: border-box !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    -webkit-appearance: none !important;
-    appearance: none !important;
-    -webkit-border-radius: var(--radius-full) !important;
-    -webkit-transform: translate3d(0,0,0) !important;
-    transform: translate3d(0,0,0) !important;
-    background-clip: padding-box !important;
-    -webkit-background-clip: padding-box !important;
-    overflow: hidden !important;
-    position: relative !important;
-    flex-shrink: 0 !important;
-    flex-grow: 0 !important;
-  }
-  
-  .dot::before {
-    box-sizing: border-box !important;
-    -webkit-border-radius: 50% !important;
-    border-radius: 50% !important;
-  }
-  
-  .dots {
-    align-items: center !important;
-    justify-content: flex-end !important;
-    flex-wrap: nowrap !important;
-    overflow: visible !important;
-  }
-}
-
-/* Additional iOS Safari fixes for all iOS devices */
-@supports (-webkit-touch-callout: none) {
-  .dot {
-    -webkit-tap-highlight-color: transparent !important;
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    -khtml-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
-    touch-action: manipulation !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-  }
-  
-  .dots {
-    -webkit-overflow-scrolling: touch !important;
-    contain: layout style !important;
-  }
-}
 
 /* --- Grids --- */
 .grid {
