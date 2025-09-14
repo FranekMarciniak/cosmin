@@ -542,11 +542,11 @@ a {
 /* Fix dots on mobile to prevent squishing */
 @media (max-width: 768px) {
   .dot {
-    width: var(--spacing-lg);
-    height: var(--spacing-lg);
+    width: var(--spacing-xl);
+    height: var(--spacing-xl);
     flex-shrink: 0;
-    min-width: var(--spacing-lg);
-    min-height: var(--spacing-lg);
+    min-width: var(--spacing-xl);
+    min-height: var(--spacing-xl);
     border: var(--border-width-medium) solid var(--color-primary);
   }
   
@@ -560,10 +560,10 @@ a {
   }
   
   .dot {
-    width: var(--spacing-lg);
-    height: var(--spacing-lg);
-    min-width: var(--spacing-lg);
-    min-height: var(--spacing-lg);
+    width: var(--spacing-xl);
+    height: var(--spacing-xl);
+    min-width: var(--spacing-xl);
+    min-height: var(--spacing-xl);
     box-sizing: border-box;
     -webkit-appearance: none;
     appearance: none;
