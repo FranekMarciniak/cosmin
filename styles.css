@@ -25,13 +25,14 @@
   --color-text-muted: rgba(0, 0, 0, 0.6);
   --color-text-light: rgba(0, 0, 0, 0.4);
   --color-border: rgba(0, 0, 0, 0.1);
+  --color-dot-inactive: rgb(196, 196, 196);
   --color-overlay: rgba(0, 0, 0, 0.4);
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-shadow-strong: rgba(0, 0, 0, 0.15);
   
   /* Brand Colors */
   --color-red: #dc2626;
-  --color-blue: #2563eb;
+  --color-blue: #1838fc;
   --color-emerald: #a7f3d0;
   --color-yellow: #fde68a;
   --color-stone: #d6d3d1;
@@ -67,7 +68,7 @@
   --font-size-7xl: 2rem; /* 32px */
   --font-size-8xl: 2.5rem; /* 40px */
   --font-size-9xl: 3rem; /* 48px */
-  --font-size-hero: clamp(40px, 7vw, 96px);
+  --font-size-hero: 32px;
   
   /* Line Heights */
   --line-height-tight: 0.9;
@@ -311,6 +312,11 @@ a {
     line-height: var(--font-size-6xl);
   }
   
+  /* Hide comma separators in mobile nav */
+  .nav-link span + span {
+    display: none;
+  }
+  
   /* Hamburger Animation */
   .hamburger-menu.active .menu-icon {
     opacity: 0;
@@ -376,7 +382,7 @@ a {
   border-top: none;
 }
 .section-header .title {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-hero);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -441,26 +447,26 @@ a {
 
 /* --- Hero (first tile) --- */
 .hero {
-  height: 80vh;
   width: 100%;
+  height: auto;
 }
 
 /* Fix hero viewport height on mobile */
 @media (max-width: 768px) {
   .hero {
-    height: 500px; /* Fixed height on mobile */
+    height: auto;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    height: 400px; /* Smaller fixed height on small mobile */
+    height: auto;
   }
 }
 
 @media (max-width: 320px) {
   .hero {
-    height: 350px; /* Even smaller for very small screens */
+    height: auto; /* Even smaller for very small screens */
   }
 }
 .hero .title {
@@ -478,7 +484,7 @@ a {
 }
 @media (min-width: 768px) {
   .carousel-container.hero-carousel {
-    width: 80%;
+    width: 70%;
   }
 }
 
@@ -495,15 +501,15 @@ a {
   min-height: var(--spacing-2xl);
 }
 .dot {
-  width: var(--spacing-xl);
-  height: var(--spacing-xl);
-  min-width: var(--spacing-xl);
-  min-height: var(--spacing-xl);
-  max-width: var(--spacing-xl);
-  max-height: var(--spacing-xl);
+  width: var(--spacing-lg);
+  height: var(--spacing-lg);
+  min-width: var(--spacing-lg);
+  min-height: var(--spacing-lg);
+  max-width: var(--spacing-lg);
+  max-height: var(--spacing-lg);
   border-radius: var(--radius-full);
-  background: transparent;
-  border: var(--border-width-medium) solid var(--color-primary);
+  background: var(--color-dot-inactive);
+  border: none;
   opacity: var(--opacity-disabled);
   cursor: pointer;
   transition: all var(--transition-normal);
@@ -520,19 +526,18 @@ a {
 
 .dot:hover {
   opacity: var(--opacity-hover);
-  transform: scale(1.1);
-  background: var(--color-primary);
+  background: var(--color-blue);
 }
 
 .dot:hover::before { display: none; }
 
 .dot[aria-current="true"] {
   opacity: 1;
-  background: var(--color-primary);
+  background: var(--color-blue);
 }
 
 .dot[aria-current="true"]:hover {
-  background: var(--color-primary);
+  background: var(--color-blue);
 }
 
 .dot[aria-current="true"]:hover::before {
@@ -547,7 +552,7 @@ a {
     flex-shrink: 0;
     min-width: var(--spacing-xl);
     min-height: var(--spacing-xl);
-    border: var(--border-width-medium) solid var(--color-primary);
+    border: none;
   }
   
   .dot:hover::before { display: none; }
@@ -572,7 +577,7 @@ a {
     transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border: var(--border-width-medium) solid var(--color-primary);
+    border: none;
   }
   
   .dot:hover::before { display: none; }
@@ -984,35 +989,28 @@ footer.site-footer {
 }
 
 .carousel-slide {
-  min-width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 100%;
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-none);
 }
 
-/* Hero carousel slides should inherit hero height */
+/* Hero carousel slides should inherit hero card height */
 .hero-carousel .carousel-slide {
-  height: 90vh;
+  height: 100%;
 }
 
-/* Fix mobile viewport height issues */
+/* Slides continue to inherit hero card height across breakpoints */
 @media (max-width: 768px) {
-  .hero-carousel .carousel-slide {
-    height: 500px; /* Fixed height on mobile */
-  }
+  .hero-carousel .carousel-slide { height: 100%; }
 }
 
 @media (max-width: 480px) {
-  .hero-carousel .carousel-slide {
-    height: 400px; /* Smaller fixed height on small mobile */
-  }
+  .hero-carousel .carousel-slide { height: 100%; }
 }
 
 @media (max-width: 320px) {
-  .hero-carousel .carousel-slide {
-    height: 350px; /* Even smaller for very small screens */
-  }
+  .hero-carousel .carousel-slide { height: 100%; }
 }
 
 /* Regular carousel slides should inherit aspect ratio */
@@ -1031,6 +1029,47 @@ footer.site-footer {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+.card-description-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-description-title {
+  font-size: var(--font-size-lg);
+}
+
+.card-description-subtitle {
+  background: var(--color-text-primary);
+  color: var(--color-white);
+  padding: 2px 8px;
+  margin-top: 4px;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+}
+
+/* Image-only cards: make images cover the card area */
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure hero images fill the slide so dots sit directly below */
+.hero-carousel .card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .carousel-container:active {

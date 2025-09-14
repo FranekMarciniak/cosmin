@@ -58,7 +58,18 @@
             </p>
           </div>
           <figure class="about-portrait">
-            <img src="public/img/cosmin.png" alt="Cosmin portrait" />
+            <img
+              srcset="
+                /public/img/profile-pic/profile-pic-400w.webp 400w,
+                /public/img/profile-pic/profile-pic-600w.webp 600w,
+                /public/img/profile-pic/profile-pic-800w.webp 800w
+              "
+              sizes="(max-width: 400px) 400px, (max-width: 600px) 600px, (min-width: 601px) 800px"
+              src="/public/img/profile-pic/profile-pic.jpg"
+              alt=""
+              width="960"
+              height="1280"
+            />
             <figcaption class="sr-only">Cosmin at desk</figcaption>
           </figure>
         </div>
@@ -197,6 +208,7 @@
       </div>
     </footer>
 
+    <script src="carousel-config.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

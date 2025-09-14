@@ -152,6 +152,7 @@ class Carousel {
     this.buildDots();
     this.setSlide(0);
     this.setupTouchEvents();
+    window.addEventListener('resize', () => this.setSlide(this.slideIndex));
     
     // Store reference to this carousel instance on the container for global click handling
     this.container.carouselInstance = this;
@@ -168,7 +169,7 @@ class Carousel {
     // Create individual slides
     this.slides.forEach((slide, index) => {
       const slideElement = document.createElement('a');
-      slideElement.className = `carousel-slide ${slide.bg}`;
+      slideElement.className = `carousel-slide ${slide.bg || ''}`.trim();
       slideElement.href = slide.link || '#';
       
       // Prevent link clicks when dragging or recently dragged
@@ -185,27 +186,38 @@ class Carousel {
         }
       });
       
-      // Create slide content structure
-      slideElement.innerHTML = `
-        <div class="pad">
-          <div class="title carousel-title-${index}"></div>
-        </div>
-        <div class="caption carousel-caption-${index}"></div>
-      `;
-      
-      // Update content
-      const titleEl = slideElement.querySelector(`.carousel-title-${index}`);
-      const captionEl = slideElement.querySelector(`.carousel-caption-${index}`);
-      
-      if (Array.isArray(slide.html)) {
-        titleEl.innerHTML = slide.html
-          .map((line) => `<span>${line}</span>`)
-          .join("<br>");
-      } else {
-        titleEl.innerHTML = slide.html;
+      // Image-only slide content
+      const img = document.createElement('img');
+      img.className = 'card-img';
+      img.alt = slide.alt || '';
+
+      // Build responsive sources if provided
+      if (slide.image) {
+        // Option A: Explicit path (no srcset)
+        if (slide.image.path) {
+          img.src = slide.image.path;
+        } else {
+          // Option B: Build from parts
+          const card = slide.image.card || '';
+          const name = slide.image.name || '';
+          const widths = slide.image.widths || [400, 600, 800, 1000, 1200, 1600, 2000];
+          const ext = slide.image.ext || 'webp';
+          const base = `public/img/${card}/${name}`;
+          const srcset = widths
+            .map((w) => `${base}-${w}w.${ext} ${w}w`)
+            .join(', ');
+          img.setAttribute('srcset', srcset);
+          // Default sizes matching request
+          const sizes = slide.image.sizes || '(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (max-width: 1000px) 1000px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (min-width: 1601px) 2000px';
+          img.setAttribute('sizes', sizes);
+          const fallbackWidth = slide.image.fallbackWidth || 1000;
+          img.src = `${base}-${fallbackWidth}w.${ext}`;
+          if (slide.image.width) img.width = slide.image.width;
+          if (slide.image.height) img.height = slide.image.height;
+        }
       }
-      
-      captionEl.textContent = slide.caption;
+
+      slideElement.appendChild(img);
       
       slidesContainer.appendChild(slideElement);
     });
@@ -230,9 +242,9 @@ class Carousel {
   setSlide(i) {
     this.slideIndex = (i + this.slides.length) % this.slides.length;
     
-    // Slide to the correct position
-    const translateX = -this.slideIndex * 100;
-    this.slidesContainer.style.transform = `translateX(${translateX}%)`;
+    // Slide to the correct position (pixels to avoid fractional widths)
+    const translatePx = -this.slideIndex * this.container.offsetWidth;
+    this.slidesContainer.style.transform = `translateX(${translatePx}px)`;
 
     // Update dots
     [...this.dotsContainer.children].forEach((dot, idx) =>
@@ -430,79 +442,19 @@ class Carousel {
   }
 }
 
-// --- Portfolio Carousel Data ---
-const heroSlides = [
-  {
-    bg: "bg-red",
-    html: [
-      "E-Commerce",
-      "Mobile App",
-      "Redesign",
-      "2024",
-    ],
-    caption: "Project: ShopFlow Mobile",
-    link: "https://google.com?q=ShopFlow+Mobile",
-  },
-  {
-    bg: "bg-blue",
-    html: ["Banking", "Dashboard", "Interface", "2024"],
-    caption: "Project: SecureBank Pro",
-    link: "https://google.com?q=SecureBank+Pro",
-  },
-  {
-    bg: "bg-emerald",
-    html: ["Healthcare", "Patient Portal", "UX Research", "2023"],
-    caption: "Project: MedConnect",
-    link: "https://google.com?q=MedConnect",
-  },
-  {
-    bg: "bg-yellow",
-    html: ["Travel Booking", "Web Platform", "Complete Redesign"],
-    caption: "Project: WanderWise",
-    link: "https://google.com?q=WanderWise",
-  },
-];
+// --- Initialize Carousels using external config if available ---
+document.addEventListener('DOMContentLoaded', () => {
+  const cfg = window.CAROUSEL_CONFIG || {};
+  const heroSlides = cfg.heroSlides || [];
+  const recentWorkSlides = cfg.recentWorkSlides || [];
 
-const recentWorkSlides = [
-  {
-    bg: "bg-blue",
-    html: "Dashboard<br>Analytics",
-    caption: "FinTech Platform",
-    link: "https://google.com?q=FinTech+Platform",
-  },
-  {
-    bg: "bg-red",
-    html: "Mobile App<br>User Experience<br>Design",
-    caption: "Fitness Tracker",
-    link: "https://google.com?q=Fitness+Tracker",
-  },
-  {
-    bg: "bg-emerald",
-    html: "E-commerce<br>Checkout Flow<br>Optimization",
-    caption: "RetailMax",
-    link: "https://google.com?q=RetailMax",
-  },
-  {
-    bg: "bg-yellow",
-    html: "SaaS Platform<br>Design System<br>Implementation",
-    caption: "ProductivityHub",
-    link: "https://google.com?q=ProductivityHub",
-  },
-];
-
-// --- Initialize Carousels ---
-const heroCarousel = new Carousel("hero", heroSlides, [
-  "bg-red",
-  "bg-blue",
-  "bg-emerald",
-  "bg-yellow",
-]);
-const recentWorkCarousel = new Carousel("retail-carousel", recentWorkSlides, [
-  "bg-red",
-  "bg-blue",
-  "bg-emerald",
-  "bg-yellow",
-]);
+  if (document.getElementById('hero') && heroSlides.length) {
+    new Carousel("hero", heroSlides, ["bg-red", "bg-blue", "bg-emerald", "bg-yellow"]);
+  }
+  if (document.getElementById('retail-carousel') && recentWorkSlides.length) {
+    new Carousel("retail-carousel", recentWorkSlides, ["bg-red", "bg-blue", "bg-emerald", "bg-yellow"]);
+  }
+});
 
 // Footer year
 document.getElementById("copyright-year").textContent =
