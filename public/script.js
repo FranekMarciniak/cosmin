@@ -199,7 +199,7 @@ class Carousel {
           const name = slide.image.name || '';
           const widths = slide.image.widths || [400, 600, 800, 1000, 1200, 1600, 2000];
           const ext = slide.image.ext || 'webp';
-          const base = `public/img/${card}/${name}`;
+          const base = `/img/${card}/${name}`;
           const srcset = widths.map((w) => `${base}-${w}w.${ext} ${w}w`).join(', ');
           img.setAttribute('srcset', srcset);
           const sizes = slide.image.sizes || '(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (max-width: 1000px) 1000px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (min-width: 1601px) 2000px';
@@ -450,8 +450,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Footer year
-document.getElementById("copyright-year").textContent =
-  new Date().getFullYear();
+const copyrightEl = document.getElementById("copyright-year");
+if (copyrightEl) {
+  copyrightEl.textContent = new Date().getFullYear();
+}
 
 // --- Portfolio-specific functionality ---
 (function initPortfolio() {

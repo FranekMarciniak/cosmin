@@ -64,17 +64,17 @@ window.CAROUSEL_CONFIG = {
     {
       link: "https://google.com?q=Fitness+Tracker",
       alt: "",
-      image: { path: "public/img/havana/havana-club-pic.png" }
+      image: { path: "/img/havana/havana-club-pic.png" }
     },
     {
       link: "https://google.com?q=RetailMax",
       alt: "",
-      image: { path: "public/img/machina/machina-events-pic.png" }
+      image: { path: "/img/machina/machina-events-pic.png" }
     },
     {
       link: "https://google.com?q=ProductivityHub",
       alt: "",
-      image: { path: "public/img/logos/logos_pic.png" }
+      image: { path: "/img/logos/logos_pic.png" }
     }
   ]
 };

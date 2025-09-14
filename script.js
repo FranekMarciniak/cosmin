@@ -202,7 +202,7 @@ class Carousel {
           const name = slide.image.name || '';
           const widths = slide.image.widths || [400, 600, 800, 1000, 1200, 1600, 2000];
           const ext = slide.image.ext || 'webp';
-          const base = `public/img/${card}/${name}`;
+          const base = `/img/${card}/${name}`;
           const srcset = widths
             .map((w) => `${base}-${w}w.${ext} ${w}w`)
             .join(', ');
@@ -457,8 +457,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Footer year
-document.getElementById("copyright-year").textContent =
-  new Date().getFullYear();
+const copyrightEl = document.getElementById("copyright-year");
+if (copyrightEl) {
+  copyrightEl.textContent = new Date().getFullYear();
+}
 
 // --- Portfolio-specific functionality ---
 (function initPortfolio() {

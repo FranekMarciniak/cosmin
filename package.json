@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "echo 'Static site'"
+    "start": "vite preview"
   },
   "author": "",
   "license": "ISC",
