@@ -6,7 +6,8 @@ module.exports = defineConfig({
       input: {
         main: './index.html',
         about: './about.html',
-        work: './work/index.html'
+        work: './work/index.html',
+        factofly: './work/factofly.html'
       }
     }
   }

@@ -7,6 +7,10 @@
     {
       "source": "/work",
       "destination": "/work/index.html"
+    },
+    {
+      "source": "/work/factofly",
+      "destination": "/work/factofly.html"
     }
   ]
 }
