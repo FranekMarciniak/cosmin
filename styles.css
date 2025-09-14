@@ -659,7 +659,7 @@ footer.site-footer {
 }
 
 .footer-container {
-  padding: var(--spacing-3xl) var(--spacing-lg);
+  padding: var(--spacing-3xl);
   width: 100%;
 }
 
@@ -734,6 +734,13 @@ footer.site-footer {
   height: var(--spacing-3xl);
 }
 
+/* Footer logo svg size */
+.footer-logo {
+  display: block;
+  width: var(--spacing-3xl);
+  height: var(--spacing-3xl);
+}
+
 /* Create 3x3 grid with missing middle-right square using box-shadow */
 .icon-grid::before {
   content: '';
@@ -800,6 +807,10 @@ footer.site-footer {
   }
   
   .icon-grid {
+    width: var(--spacing-2xl);
+    height: var(--spacing-2xl);
+  }
+  .footer-logo {
     width: var(--spacing-2xl);
     height: var(--spacing-2xl);
   }
