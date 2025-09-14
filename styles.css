@@ -1,35 +1,14 @@
 /* --- Font Face Declarations --- */
 @font-face {
   font-family: 'Helvetica Neue';
-  src: url('public/fonts/Helvetica-Neue/HelveticaNeue-Thin.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('public/fonts/Helvetica-Neue/HelveticaNeue-Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('public/fonts/Helvetica-Neue/HelveticaNeue-Roman.otf') format('opentype');
+  src: url('/public/fonts/Helvetica-Neue/HelveticaNeue-Roman.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Helvetica Neue';
-  src: url('public/fonts/Helvetica-Neue/HelveticaNeue-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('public/fonts/Helvetica-Neue/HelveticaNeue-Bold.otf') format('opentype');
+  src: url('/public/fonts/Helvetica-Neue/HelveticaNeue-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
