@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Close menu when clicking on nav links
-    const navLinks = document.querySelectorAll('.nav-list a');
+    const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         hamburgerMenu.classList.remove('active');
