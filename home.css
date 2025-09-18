@@ -73,7 +73,7 @@
   display: flex;
   justify-content: flex-end;
   gap: var(--space-md);
-  margin-top: var(--space-lg);
+  margin-top: var(--space-sm);
   align-items: center;
   min-height: var(--space-2xl);
 }
@@ -215,6 +215,5 @@
 @media (max-width: 480px) {
   .dots {
     gap: var(--space-sm);
-    margin-top: var(--space-sm);
   }
 }
