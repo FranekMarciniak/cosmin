@@ -159,7 +159,6 @@
   background: var(--color-text-primary);
   color: var(--color-white);
   padding: 2px var(--space-md);
-  margin-top: var(--space-xs);
   border-radius: var(--radius-lg);
   font-size: var(--text-sm);
 }
