@@ -9,7 +9,7 @@
 
 .about-portrait {
   max-width: 800px;
-  margin: 0 ;
+  margin: 0;
   position: relative;
 }
 
@@ -66,7 +66,11 @@
 .clients-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-3xl) var(--space-6xl);
+  gap: 0;
+}
+.clients-grid {
+  margin: 0;
+  padding: 0;
 }
 
 .clients-grid ul {
@@ -79,15 +83,33 @@
 .clients-grid li {
   margin: var(--space-sm) 0;
 }
+/* fix the gap between the lists */
+.clients-grid ul:nth-child(2) {
+  margin-top: -6px;
+}
+
+/* fix the gap between the lists */
+.clients-grid ul:nth-child(3) {
+  margin-top: -8px;
+}
 
 /* --- Responsive Design --- */
 @media (min-width: 768px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .clients-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  /* fix the gap between the lists */
+  .clients-grid ul:nth-child(2) {
+    margin-top: 0px;
+  }
+
+  /* fix the gap between the lists */
+  .clients-grid ul:nth-child(3) {
+    margin-top: 0px;
   }
 }
 
@@ -108,7 +130,7 @@
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .clients-grid {
     grid-template-columns: repeat(3, 1fr);
   }
