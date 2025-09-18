@@ -120,7 +120,7 @@
 
 /* --- Project Navigation --- */
 .project-navigation {
-  padding: var(--space-6xl) 0;
+  padding: var(--space-2xl) 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -186,8 +186,8 @@
   }
   
   .project-nav-links {
-    flex-direction: column;
-    gap: var(--space-3xl);
+    flex-direction: row;
+    gap: var(--space-lg);
   }
   
   .project-nav-link {

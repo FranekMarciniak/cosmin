@@ -146,6 +146,13 @@
 
 .card-description-title {
   font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.card-description-title:hover {
+  color: var(--color-text-secondary);
 }
 
 .card-description-subtitle {
