@@ -24,6 +24,7 @@
 .hero {
   width: 100%;
   height: auto;
+  padding-bottom: 12px;
 }
 
 .hero .title {
@@ -105,23 +106,31 @@
 .grid {
   display: grid;
   gap: var(--space-3xl);
+  width: 100%;
+  min-width: 0;
 }
 
 .cards-grid {
   grid-template-columns: 1fr;
   gap: var(--space-3xl);
+  width: 100%;
+  min-width: 0;
 }
 
 .card-wrapper {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  width: 100%;
+  min-width: 0;
 }
 
 .card-wrapper .card {
   height: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
 }
 
 .card-wrapper .card-img {
@@ -198,8 +207,15 @@
 @media (min-width: 768px) {
   .carousel-container.hero-carousel {
     width: 70%;
+    max-width: 70%;
   }
-  
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -210,10 +226,29 @@
     width: var(--space-xl);
     height: var(--space-xl);
   }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
 }
 
 @media (max-width: 480px) {
   .dots {
+    gap: var(--space-sm);
+  }
+
+  .cards-grid {
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 320px) {
+  .cards-grid {
+    gap: var(--space-lg);
+  }
+
+  .card-wrapper {
     gap: var(--space-sm);
   }
 }

@@ -2,15 +2,17 @@
 
 /* --- Font Face Declarations --- */
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('/public/fonts/Helvetica-Neue/HelveticaNeue-Roman.otf') format('opentype');
+  font-family: "Helvetica Neue";
+  src: url("/public/fonts/Helvetica-Neue/HelveticaNeue-Roman.otf")
+    format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('/public/fonts/Helvetica-Neue/HelveticaNeue-Bold.otf') format('opentype');
+  font-family: "Helvetica Neue";
+  src: url("/public/fonts/Helvetica-Neue/HelveticaNeue-Bold.otf")
+    format("opentype");
   font-weight: 700;
   font-style: normal;
 }
@@ -23,7 +25,7 @@
   --color-gray-light: #8a8a8a;
   --color-green: #00ff99;
   --color-blue: #1838fc;
-  
+
   /* Semantic Colors */
   --color-primary: var(--color-black);
   --color-primary-hover: #333;
@@ -32,70 +34,70 @@
   --color-text-muted: rgba(0, 0, 0, 0.6);
   --color-border: rgba(0, 0, 0, 0.1);
   --color-footer-bg: #1c1c1c;
-  
+
   /* Spacing Scale (rem-based for consistency) */
-  --space-xs: 0.25rem;  /* 4px */
+  --space-xs: 0.25rem; /* 4px */
   --space-sm: 0.375rem; /* 6px */
-  --space-md: 0.5rem;   /* 8px */
-  --space-lg: 0.75rem;  /* 12px */
-  --space-xl: 1rem;     /* 16px */
+  --space-md: 0.5rem; /* 8px */
+  --space-lg: 0.75rem; /* 12px */
+  --space-xl: 1rem; /* 16px */
   --space-2xl: 1.25rem; /* 20px */
-  --space-3xl: 1.5rem;  /* 24px */
-  --space-4xl: 2rem;    /* 32px */
-  --space-5xl: 2.5rem;  /* 40px */
-  --space-6xl: 3rem;    /* 48px */
-  --space-7xl: 3.5rem;  /* 56px */
-  
+  --space-3xl: 1.5rem; /* 24px */
+  --space-4xl: 2rem; /* 32px */
+  --space-5xl: 2.5rem; /* 40px */
+  --space-6xl: 3rem; /* 48px */
+  --space-7xl: 3.5rem; /* 56px */
+
   /* Typography Scale (rem-based) */
-  --text-xs: 0.625rem;   /* 10px */
-  --text-sm: 0.6875rem;  /* 11px */
-  --text-base: 0.75rem;  /* 12px */
-  --text-md: 0.875rem;   /* 14px */
-  --text-lg: 1rem;       /* 16px */
-  --text-xl: 1.125rem;   /* 18px */
-  --text-2xl: 1.25rem;   /* 20px */
-  --text-3xl: 1.375rem;  /* 22px */
-  --text-4xl: 1.5rem;    /* 24px */
-  --text-5xl: 1.75rem;   /* 28px */
-  --text-6xl: 2rem;      /* 32px */
-  --text-7xl: 2.5rem;    /* 40px */
-  
+  --text-xs: 0.625rem; /* 10px */
+  --text-sm: 0.6875rem; /* 11px */
+  --text-base: 0.75rem; /* 12px */
+  --text-md: 0.875rem; /* 14px */
+  --text-lg: 1rem; /* 16px */
+  --text-xl: 1.125rem; /* 18px */
+  --text-2xl: 1.25rem; /* 20px */
+  --text-3xl: 1.375rem; /* 22px */
+  --text-4xl: 1.5rem; /* 24px */
+  --text-5xl: 1.75rem; /* 28px */
+  --text-6xl: 2rem; /* 32px */
+  --text-7xl: 2.5rem; /* 40px */
+
   /* Line Heights */
   --leading-tight: 0.9;
   --leading-snug: 1.1;
   --leading-normal: 1.35;
   --leading-relaxed: 1.4;
-  
+
   /* Font Weights */
   --font-normal: 400;
   --font-medium: 500;
   --font-bold: 700;
-  
+
   /* Font Family */
   --font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  
+
   /* Border Radius */
-  --radius-sm: 0.25rem;  /* 4px */
-  --radius-md: 0.5rem;   /* 8px */
-  --radius-lg: 0.75rem;  /* 12px */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
   --radius-full: 50%;
   --radius-pill: 9999px;
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
-  
+
   /* Breakpoints */
   --bp-sm: 320px;
   --bp-md: 480px;
   --bp-lg: 768px;
   --bp-xl: 900px;
   --bp-2xl: 1024px;
-  
+
   /* Z-index */
   --z-dropdown: 100;
 }
@@ -151,7 +153,7 @@ a {
 }
 
 #header::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: var(--space-lg);
@@ -181,7 +183,6 @@ a {
   padding-top: var(--space-lg);
   color: var(--color-text-secondary);
 }
-
 
 /* --- Navigation --- */
 .nav {
@@ -349,21 +350,21 @@ a {
   #header {
     padding: var(--space-lg);
   }
-  
+
   .header-content {
     margin-bottom: 0;
     justify-content: space-between;
   }
-  
+
   #header h1 {
     font-size: var(--text-6xl);
   }
-  
+
   .hamburger-menu {
     display: flex;
     margin-left: auto;
   }
-  
+
   .nav {
     display: none;
     position: absolute;
@@ -372,52 +373,52 @@ a {
     right: 0;
     background: var(--color-white);
     z-index: var(--z-dropdown);
-    padding: var(--space-lg) var(--space-lg);
+    padding: var(--space-lg);
     flex-direction: column;
     gap: var(--space-xl);
     align-items: flex-start;
   }
-  
+
   .nav.active {
     display: flex;
   }
-  
+
   .nav-link {
     font-size: var(--text-5xl);
   }
-  
+
   .nav-link span + span {
     display: none;
   }
-  
+
   .hamburger-menu.active .menu-icon {
     opacity: 0;
     visibility: hidden;
   }
-  
+
   .hamburger-menu.active .close-icon {
     opacity: 1;
     visibility: visible;
   }
-  
+
   .footer-content {
     flex-direction: column;
     gap: var(--space-3xl);
     text-align: center;
   }
-  
+
   .footer-left,
   .footer-center,
   .footer-right {
     flex: none;
     width: 100%;
   }
-  
+
   .footer-icon {
     align-self: center;
     width: 100%;
   }
-  
+
   .footer-logo {
     width: 100%;
     height: auto;
@@ -429,35 +430,35 @@ a {
   #header {
     padding: var(--space-lg);
   }
-  
+
   #header h1 {
     font-size: var(--text-4xl);
   }
-  
+
   .nav {
-    padding: var(--space-2xl) var(--space-sm);
+    padding: var(--space-2xl) var(--space-lg);
   }
-  
+
   .nav-link {
     font-size: var(--text-4xl);
   }
-  
+
   .footer-container {
     padding: var(--space-3xl) var(--space-lg);
   }
-  
+
   .footer-content {
     gap: var(--space-2xl);
   }
-  
+
   .footer-links {
     font-size: var(--text-sm);
   }
-  
+
   .copyright-text {
     font-size: var(--text-sm);
   }
-  
+
   .footer-icon {
     gap: var(--space-xs);
   }
@@ -467,31 +468,31 @@ a {
   #header {
     padding: var(--space-lg);
   }
-  
+
   #header h1 {
     font-size: var(--text-2xl);
   }
-  
+
   .nav {
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-lg) var(--space-lg);
   }
-  
+
   .nav-link {
     font-size: var(--text-2xl);
   }
-  
+
   .footer-container {
     padding: var(--space-2xl) var(--space-md);
   }
-  
+
   .footer-content {
     gap: var(--space-xl);
   }
-  
+
   .footer-links {
     font-size: var(--text-xs);
   }
-  
+
   .copyright-text {
     font-size: var(--text-xs);
   }
