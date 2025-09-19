@@ -4,49 +4,49 @@
 window.CAROUSEL_CONFIG = {
   heroSlides: [
     {
-      link: "/work/factofly",
+      link: "/work/factofly.html",
       alt: "",
       image: {
         card: "factofly",
         name: "factofly-1",
         widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
-        fallbackWidth: 1000
-      }
+        fallbackWidth: 1000,
+      },
     },
     {
-      link: "/work/factofly",
+      link: "/work/factofly.html",
       alt: "",
       image: {
         card: "factofly",
         name: "factofly-2",
         widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
-        fallbackWidth: 1000
-      }
+        fallbackWidth: 1000,
+      },
     },
     {
-      link: "/work/factofly",
+      link: "/work/factofly.html",
       alt: "",
       image: {
         card: "factofly",
         name: "factofly-3",
         widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
-        fallbackWidth: 1000
-      }
+        fallbackWidth: 1000,
+      },
     },
     {
-      link: "/work/factofly",
+      link: "/work/factofly.html",
       alt: "",
       image: {
         card: "factofly",
         name: "factofly-4",
-        widths: [400, 600, 800, 1000, 1200, 1600 ],
+        widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
-        fallbackWidth: 1000
-      }
-    }
+        fallbackWidth: 1000,
+      },
+    },
   ],
 
   recentWorkSlides: [
@@ -58,8 +58,8 @@ window.CAROUSEL_CONFIG = {
         name: "machina-events-pic",
         widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
-        fallbackWidth: 1000
-      }
+        fallbackWidth: 1000,
+      },
     },
     {
       link: "https://google.com?q=FinTech+Platform",
@@ -69,8 +69,8 @@ window.CAROUSEL_CONFIG = {
         name: "stock-pic",
         widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
-        fallbackWidth: 1000
-      }
+        fallbackWidth: 1000,
+      },
     },
     {
       link: "https://google.com?q=FinTech+Platform",
@@ -80,10 +80,8 @@ window.CAROUSEL_CONFIG = {
         name: "havana-club-pic",
         widths: [400, 600, 800, 1000, 1200, 1600],
         ext: "webp",
-        fallbackWidth: 1000
-      }
-    }
-  ]
+        fallbackWidth: 1000,
+      },
+    },
+  ],
 };
-
-
