@@ -243,7 +243,7 @@ class Carousel {
             400, 600, 800, 1000, 1200, 1600, 2000,
           ];
           const ext = slide.image.ext || "webp";
-          const base = `/img/${card}/${name}`;
+          const base = `/public/img/${card}/${name}`;
           const srcset = widths
             .map((w) => `${base}-${w}w.${ext} ${w}w`)
             .join(", ");
